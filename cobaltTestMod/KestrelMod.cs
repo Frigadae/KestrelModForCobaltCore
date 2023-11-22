@@ -12,7 +12,7 @@ using CobaltCoreModding.Definitions.ModManifests;
 
 namespace KestrelMod
 {
-    public class KestrelModManifest : ISpriteManifest, IShipManifest, IStartershipManifest, IShipPartManifest
+    public class Manifest : IModManifest, ISpriteManifest, IShipManifest, IStartershipManifest, IShipPartManifest
     {
 
         //kestrel mod manifest name
@@ -44,6 +44,12 @@ namespace KestrelMod
         public static ExternalPart? KestrelMissilePart;
         public static ExternalPart? KestrelWingRightPart;
         public static ExternalPart? KestrelCannonHeavyPart;
+
+        //load mod manifest
+        void IModManifest.BootMod(IModLoaderContact contact)
+        {
+            //nothing here
+        }
 
         //load sprite registry
         public void LoadManifest(ISpriteRegistry spriteRegistry)
@@ -77,6 +83,11 @@ namespace KestrelMod
             var KestrelCannonAltSpriteFile = Path.Combine(ModRootFolder?.FullName ?? "", "Sprites", Path.GetFileName("cannon_kestrel_alt.png"));
             KestrelCannonHeavySprite = new ExternalSprite("Frigadae.KestrelMod.Sprites.KestrelAltCannon", new FileInfo(KestrelCannonAltSpriteFile));
             spriteRegistry.RegisterArt(KestrelCannonHeavySprite);
+
+            //load kestrel chassis sprite
+            var KestrelChassisSpriteFile = Path.Combine(ModRootFolder?.FullName ?? "", "Sprites", Path.GetFileName("chassis_kestrel.png"));
+            KestrelChassisSprite = new ExternalSprite("Frigadae.KestrelMod.Sprites.KestrelChassis", new FileInfo(KestrelChassisSpriteFile));
+            spriteRegistry.RegisterArt(KestrelChassisSprite);
         }
 
         public void LoadManifest(IShipPartRegistry shipPartRegistry)
@@ -196,7 +207,7 @@ namespace KestrelMod
                 KestrelWingRightPart ?? throw new Exception("kestrelwingrightpart unable to be loaded")
             };
 
-            //new kestrel ship
+            //new kestrel ship and stats
             KestrelShip = new ExternalShip("Frigadae.KestrelMod.KestrelShip.Ship",
                 new Ship()
                 {
@@ -204,8 +215,8 @@ namespace KestrelMod
                     baseEnergy = 3,
                     heatTrigger = 3,
                     heatMin = 0,
-                    hull = 6,
-                    hullMax = 6,
+                    hull = 8,
+                    hullMax = 8,
                     shieldMaxBase = 4
                 },
                 KestrelParts,
@@ -216,6 +227,7 @@ namespace KestrelMod
             shipRegistry.RegisterShip(KestrelShip);
         }
 
+        //load startership registry
         public void LoadManifest(IStartershipRegistry registry)
         {
             if (KestrelShip == null)
@@ -246,6 +258,8 @@ namespace KestrelMod
                     typeof(ShieldPrep)
                 }
             );
+
+            KestrelStarterShip.AddLocalisation("The Kestrel", "A botched FTL jump sent this ship into this universe. Features the Burst Laser II weapon system.");
 
             registry.RegisterStartership(KestrelStarterShip);
         }
