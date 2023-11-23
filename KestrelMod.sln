@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KestrelMod", "KestrelMod\KestrelMod.csproj", "{84C34898-4240-4E8B-A2B4-B6A99A966908}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{84C34898-4240-4E8B-A2B4-B6A99A966908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84C34898-4240-4E8B-A2B4-B6A99A966908}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84C34898-4240-4E8B-A2B4-B6A99A966908}.Debug|x64.ActiveCfg = Debug|x64
+		{84C34898-4240-4E8B-A2B4-B6A99A966908}.Debug|x64.Build.0 = Debug|x64
+		{84C34898-4240-4E8B-A2B4-B6A99A966908}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84C34898-4240-4E8B-A2B4-B6A99A966908}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84C34898-4240-4E8B-A2B4-B6A99A966908}.Release|x64.ActiveCfg = Release|x64
+		{84C34898-4240-4E8B-A2B4-B6A99A966908}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7B74CF82-9895-4EC6-B06C-9FFCF5850787}
+	EndGlobalSection
+EndGlobal
