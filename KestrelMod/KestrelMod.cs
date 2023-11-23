@@ -115,7 +115,6 @@ namespace KestrelMod
                 damageModifier = PDamMod.none,
                 type = PType.wing
             };
-
             KestrelWingLeftPart = new ExternalPart(
                 "Frigadae.KestrelMod.Parts.KestrelWingLeft",
                 KestrelWingLeftPartObj,
@@ -130,7 +129,6 @@ namespace KestrelMod
                 damageModifier = PDamMod.none,
                 type = PType.cannon
             };
-
             KestrelCannonPart = new ExternalPart(
                 "Frigadae.KestrelMod.Parts.KestrelCannon",
                 KestrelCannonPartObj,
@@ -145,7 +143,6 @@ namespace KestrelMod
                 damageModifier = PDamMod.none,
                 type = PType.cannon
             };
-
             KestrelCannonHeavyPart = new ExternalPart(
                 "Frigadae.KestrelMod.Parts.KestrelHeavyCannon",
                 KestrelCannonHeavyPartObj,
@@ -160,7 +157,6 @@ namespace KestrelMod
                 damageModifier = PDamMod.none,
                 type = PType.cockpit
             };
-
             KestrelCockpitPart = new ExternalPart(
                 "Frigadae.KestrelMod.Parts.KestrelCockpit",
                 KestrelCockpitPartObj,
@@ -175,9 +171,8 @@ namespace KestrelMod
                 damageModifier = PDamMod.none,
                 type = PType.missiles
             };
-
             KestrelMissilePart = new ExternalPart(
-                "Frigadae.KestrelMod.Parts.KestrelCockpit",
+                "Frigadae.KestrelMod.Parts.KestrelMissile",
                 KestrelMissilePartObj,
                 KestrelMissileSprite ?? throw new Exception("kestrelmissiles not loaded"),
                 null
@@ -191,7 +186,6 @@ namespace KestrelMod
                 type = PType.wing,
                 flip = true
             };
-
             KestrelWingRightPart = new ExternalPart(
                 "Frigadae.KestrelMod.Parts.KestrelWingRight",
                 KestrelWingRightPartObj,
@@ -218,7 +212,6 @@ namespace KestrelMod
                 KestrelCannonPart ?? throw new Exception("kestrel cannon part not loaded"),
                 KestrelCockpitPart ?? throw new Exception("kestrel cockpit part not loaded"),
                 KestrelMissilePart ?? throw new Exception("kestrel missile part not loaded"),
-                KestrelCannonHeavyPart ?? throw new Exception("kestrel cannon heavy not loaded"),
                 KestrelWingRightPart ?? throw new Exception("kestrel wing right part not loaded")
             };
 
