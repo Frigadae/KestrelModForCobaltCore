@@ -1,2 +1,3 @@
-# cobaltTestMod
-Test mod for cobalt core
+# Cobalt Core Kestrel Mod
+## FTL Kestrel Cruiser for Cobalt Core game
+Work in progress
