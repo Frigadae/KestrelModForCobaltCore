@@ -366,3 +366,5 @@ FodyWeavers.xsd
 /cobaltTestMod/References/CobaltCore.dll
 /cobaltTestMod/References/CobaltCoreModding.Definitions.dll
 /KestrelMod/KestrelMod.cs
+/KestrelMod/References/CobaltCore.dll
+/KestrelMod/References/CobaltCoreModding.Definitions.dll
