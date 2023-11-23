@@ -267,7 +267,7 @@ namespace KestrelMod
                 }
             );
 
-            KestrelStarterShip.AddLocalisation("The Kestrel", "A botched FTL jump sent this ship into this universe. Fitted with Burst Laser II.");
+            KestrelStarterShip.AddLocalisation("The Kestrel", "A botched FTL jump gave this ship a new purpose in this strange new universe. Equippred with Burst Laser II gun.");
 
             registry.RegisterStartership(KestrelStarterShip);
         }
