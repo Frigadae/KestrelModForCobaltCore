@@ -209,9 +209,9 @@ namespace KestrelMod
             //array for kestrel parts
             ExternalPart[] KestrelParts = {
                 KestrelWingLeftPart ?? throw new Exception("kestrel wing left part not loaded"),
-                KestrelCannonPart ?? throw new Exception("kestrel cannon part not loaded"),
-                KestrelCockpitPart ?? throw new Exception("kestrel cockpit part not loaded"),
                 KestrelMissilePart ?? throw new Exception("kestrel missile part not loaded"),
+                KestrelCockpitPart ?? throw new Exception("kestrel cockpit part not loaded"),
+                KestrelCannonPart ?? throw new Exception("kestrel cannon part not loaded"),
                 KestrelWingRightPart ?? throw new Exception("kestrel wing right part not loaded")
             };
 
