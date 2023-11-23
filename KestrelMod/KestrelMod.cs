@@ -118,7 +118,7 @@ namespace KestrelMod
             KestrelWingLeftPart = new ExternalPart(
                 "Frigadae.KestrelMod.Parts.KestrelWingLeft",
                 KestrelWingLeftPartObj,
-                KestrelWingSprite ?? throw new Exception("kestrelwingsprite not loaded"),
+                KestrelWingSprite ?? throw new Exception("kestrel wings prite not loaded"),
                 null
             );
 
@@ -132,7 +132,7 @@ namespace KestrelMod
             KestrelCannonPart = new ExternalPart(
                 "Frigadae.KestrelMod.Parts.KestrelCannon",
                 KestrelCannonPartObj,
-                KestrelCannonSprite ?? throw new Exception("kestrelcannon not loaded"),
+                KestrelCannonSprite ?? throw new Exception("kestrel cannon not loaded"),
                 null
             );
 
@@ -146,7 +146,7 @@ namespace KestrelMod
             KestrelCannonHeavyPart = new ExternalPart(
                 "Frigadae.KestrelMod.Parts.KestrelHeavyCannon",
                 KestrelCannonHeavyPartObj,
-                KestrelCannonHeavySprite ?? throw new Exception("kestrelcannonheavy not loaded"),
+                KestrelCannonHeavySprite ?? throw new Exception("kestrel cannon heavy not loaded"),
                 null
             );
 
@@ -160,7 +160,7 @@ namespace KestrelMod
             KestrelCockpitPart = new ExternalPart(
                 "Frigadae.KestrelMod.Parts.KestrelCockpit",
                 KestrelCockpitPartObj,
-                KestrelCockpitSprite ?? throw new Exception("kestrelcockpit not loaded"),
+                KestrelCockpitSprite ?? throw new Exception("kestrel cockpit not loaded"),
                 null
             );
 
@@ -174,7 +174,7 @@ namespace KestrelMod
             KestrelMissilePart = new ExternalPart(
                 "Frigadae.KestrelMod.Parts.KestrelMissile",
                 KestrelMissilePartObj,
-                KestrelMissileSprite ?? throw new Exception("kestrelmissiles not loaded"),
+                KestrelMissileSprite ?? throw new Exception("kestrel missiles not loaded"),
                 null
             );
 
@@ -189,7 +189,7 @@ namespace KestrelMod
             KestrelWingRightPart = new ExternalPart(
                 "Frigadae.KestrelMod.Parts.KestrelWingRight",
                 KestrelWingRightPartObj,
-                KestrelWingSprite ?? throw new Exception("kestrelwingsprite not loaded"),
+                KestrelWingSprite ?? throw new Exception("kestrel wing sprite not loaded"),
                 null
             );
 
@@ -240,7 +240,7 @@ namespace KestrelMod
         {
             if (KestrelShip == null)
             {
-                throw new Exception("kestrelship unable to be loaded");
+                throw new Exception("kestrel ship unable to be loaded");
             }
 
             ExternalStarterShip KestrelStarterShip = new ExternalStarterShip(
