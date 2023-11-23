@@ -223,9 +223,9 @@ namespace KestrelMod
                     baseEnergy = 3,
                     heatTrigger = 3,
                     heatMin = 0,
-                    hull = 8,
-                    hullMax = 8,
-                    shieldMaxBase = 4
+                    hull = 9,
+                    hullMax = 9,
+                    shieldMaxBase = 5
                 },
                 KestrelParts,
                 KestrelChassisSprite ?? throw new Exception("kestrel chassis sprite not loaded"),
@@ -267,7 +267,7 @@ namespace KestrelMod
                 }
             );
 
-            KestrelStarterShip.AddLocalisation("The Kestrel", "A botched FTL jump gave this ship a new purpose in this strange new universe. Equippred with Burst Laser II gun.");
+            KestrelStarterShip.AddLocalisation("The Kestrel", "A cruiser from another universe. A botched FTL jump marks the beginning of a new mission. Armed with a Burst Laser II gun.");
 
             registry.RegisterStartership(KestrelStarterShip);
         }
