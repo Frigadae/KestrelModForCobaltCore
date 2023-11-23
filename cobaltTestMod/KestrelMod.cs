@@ -9,6 +9,7 @@ using CobaltCoreModding.Definitions;
 using CobaltCoreModding.Definitions.ExternalItems;
 using CobaltCoreModding.Definitions.ModContactPoints;
 using CobaltCoreModding.Definitions.ModManifests;
+using Microsoft.Extensions.Logging;
 
 namespace KestrelMod
 {
@@ -22,9 +23,6 @@ namespace KestrelMod
         public string Name => "Frigadae.KestrelMod.KestrelModManifest";
 
         public IEnumerable<DependencyEntry> Dependencies => new DependencyEntry[0];
-
-        Microsoft.Extensions.Logging.ILogger? IManifest.Logger { get; set; }
-
 
         //kestrel ship parts sprites
         public static ExternalSprite? KestrelWingSprite;
@@ -44,6 +42,9 @@ namespace KestrelMod
         public static ExternalPart? KestrelMissilePart;
         public static ExternalPart? KestrelWingRightPart;
         public static ExternalPart? KestrelCannonHeavyPart;
+
+        //logger
+        public ILogger? Logger { get; set; }
 
         //load mod manifest
         void IModManifest.BootMod(IModLoaderContact contact)
@@ -259,7 +260,7 @@ namespace KestrelMod
                 }
             );
 
-            KestrelStarterShip.AddLocalisation("The Kestrel", "A botched FTL jump sent this ship into this universe. Features the Burst Laser II weapon system.");
+            KestrelStarterShip.AddLocalisation("The Kestrel", "A botched FTL jump sent this ship into this universe. Fitted with Burst Laser II.");
 
             registry.RegisterStartership(KestrelStarterShip);
         }
