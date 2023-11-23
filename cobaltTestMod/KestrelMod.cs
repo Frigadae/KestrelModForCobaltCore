@@ -2,9 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using System.Threading.Tasks;
 using CobaltCoreModding.Definitions;
 using CobaltCoreModding.Definitions.ExternalItems;
 using CobaltCoreModding.Definitions.ModContactPoints;
@@ -25,23 +23,23 @@ namespace KestrelMod
         public IEnumerable<DependencyEntry> Dependencies => new DependencyEntry[0];
 
         //kestrel ship parts sprites
-        public static ExternalSprite? KestrelWingSprite;
-        public static ExternalSprite? KestrelCannonSprite;
-        public static ExternalSprite? KestrelCockpitSprite;
-        public static ExternalSprite? KestrelMissileSprite;
-        public static ExternalSprite? KestrelChassisSprite;
-        public static ExternalSprite? KestrelCannonHeavySprite;
+        private ExternalSprite? KestrelWingSprite;
+        private ExternalSprite? KestrelCannonSprite;
+        private ExternalSprite? KestrelCockpitSprite;
+        private ExternalSprite? KestrelMissileSprite;
+        private ExternalSprite? KestrelChassisSprite;
+        private ExternalSprite? KestrelCannonHeavySprite;
 
         //kestrel external ship obj
-        public static ExternalShip? KestrelShip;
+        private ExternalShip? KestrelShip;
 
         //kestrel ship part objects
-        public static ExternalPart? KestrelWingLeftPart;
-        public static ExternalPart? KestrelCannonPart;
-        public static ExternalPart? KestrelCockpitPart;
-        public static ExternalPart? KestrelMissilePart;
-        public static ExternalPart? KestrelWingRightPart;
-        public static ExternalPart? KestrelCannonHeavyPart;
+        private ExternalPart? KestrelWingLeftPart;
+        private ExternalPart? KestrelCannonPart;
+        private ExternalPart? KestrelCockpitPart;
+        private ExternalPart? KestrelMissilePart;
+        private ExternalPart? KestrelWingRightPart;
+        private ExternalPart? KestrelCannonHeavyPart;
 
         //logger
         public ILogger? Logger { get; set; }
@@ -49,7 +47,7 @@ namespace KestrelMod
         //load mod manifest
         void IModManifest.BootMod(IModLoaderContact contact)
         {
-            //nothing here
+            //throw new Exception("Not implemented!");
         }
 
         //load sprite registry
@@ -78,7 +76,7 @@ namespace KestrelMod
             //load kestrel missiles sprite
             var KestrelMissileSpriteFile = Path.Combine(ModRootFolder?.FullName ?? "", "Sprites", Path.GetFileName("missiles_kestrel.png"));
             KestrelMissileSprite = new ExternalSprite("Frigadae.KestrelMod.Sprites.KestrelMissiles", new FileInfo(KestrelMissileSpriteFile));
-            spriteRegistry.RegisterArt(KestrelCannonSprite);
+            spriteRegistry.RegisterArt(KestrelMissileSprite);
 
             //load kestrel cannon alt sprite
             var KestrelCannonAltSpriteFile = Path.Combine(ModRootFolder?.FullName ?? "", "Sprites", Path.GetFileName("cannon_kestrel_alt.png"));
