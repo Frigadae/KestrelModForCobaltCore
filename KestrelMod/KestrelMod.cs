@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace KestrelMod
 {
-    public partial class Manifest : IModManifest, ISpriteManifest, IShipManifest, IStartershipManifest, IShipPartManifest
+    public partial class Manifest : IModManifest, ISpriteManifest, IShipManifest, IStartershipManifest, IShipPartManifest, IArtifactManifest
     {
         //kestrel mod manifest name
         public DirectoryInfo? ModRootFolder { get; set; }
@@ -27,6 +27,7 @@ namespace KestrelMod
         private ExternalSprite? KestrelMissileSprite;
         private ExternalSprite? KestrelChassisSprite;
         private ExternalSprite? KestrelCannonHeavySprite;
+        private ExternalSprite? KestrelMissileHeavySprite;
 
         //kestrel external ship obj
         private ExternalShip? KestrelShip;
@@ -38,6 +39,7 @@ namespace KestrelMod
         private ExternalPart? KestrelMissilePart;
         private ExternalPart? KestrelWingRightPart;
         private ExternalPart? KestrelCannonHeavyPart;
+        private ExternalPart? KestrelMissileHeavyPart;
 
         //logger
         public ILogger? Logger { get; set; }
@@ -94,6 +96,14 @@ namespace KestrelMod
             if (!spriteRegistry.RegisterArt(KestrelCannonHeavySprite))
             {
                 throw new Exception("kestrel cannon heavy sprite not loaded");
+            };
+
+            //load kestrel missiles alt sprite
+            var KestrelMissileHeavySpriteFile = Path.Combine(ModRootFolder.FullName, "Sprites", Path.GetFileName("missiles_kestrel_alt.png"));
+            KestrelMissileHeavySprite = new ExternalSprite("Frigadae.KestrelMod.Sprites.KestrelMissiles", new FileInfo(KestrelMissileHeavySpriteFile));
+            if (!spriteRegistry.RegisterArt(KestrelMissileSprite))
+            {
+                throw new Exception("kestrel missile heavy sprite not loaded");
             };
 
             //load kestrel chassis sprite
@@ -178,6 +188,20 @@ namespace KestrelMod
                 null
             );
 
+            //initialise kestrel heavy cannon
+            Part KestrelMissileHeavyPartObj = new Part()
+            {
+                active = true,
+                damageModifier = PDamMod.none,
+                type = PType.cannon
+            };
+            KestrelMissileHeavyPart = new ExternalPart(
+                "Frigadae.KestrelMod.Parts.KestrelMissileHeavy",
+                KestrelMissileHeavyPartObj,
+                KestrelMissileHeavySprite ?? throw new Exception("kestrel missiles heavy not loaded"),
+                null
+            );
+
             //initialise kestrel right wing
             Part KestrelWingRightPartObj = new Part()
             {
@@ -199,6 +223,7 @@ namespace KestrelMod
             shipPartRegistry.RegisterPart(KestrelCannonHeavyPart);
             shipPartRegistry.RegisterPart(KestrelCockpitPart);
             shipPartRegistry.RegisterPart(KestrelMissilePart);
+            shipPartRegistry.RegisterPart(KestrelMissileHeavyPart);
             shipPartRegistry.RegisterPart(KestrelWingRightPart);
         }
 
@@ -267,9 +292,14 @@ namespace KestrelMod
                 }
             );
 
-            KestrelStarterShip.AddLocalisation("Kestrel", "A cruiser from another universe. A runaway FTL jump beckons a new mission. Equipped with Burst Laser II and Artemis.");
+            KestrelStarterShip.AddLocalisation("Kestrel", "A cruiser from another universe. A runaway FTL jump beckons a new mission. Equipped with Burst Laser and Artemis.");
 
             registry.RegisterStartership(KestrelStarterShip);
+        }
+
+        public void LoadManifest(IArtifactRegistry registry)
+        {
+            
         }
     }
 }
