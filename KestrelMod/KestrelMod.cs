@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace KestrelMod
 {
-    public class Manifest : IModManifest, ISpriteManifest, IShipManifest, IStartershipManifest, IShipPartManifest
+    public partial class Manifest : IModManifest, ISpriteManifest, IShipManifest, IStartershipManifest, IShipPartManifest
     {
         //kestrel mod manifest name
         public DirectoryInfo? ModRootFolder { get; set; }
@@ -223,9 +223,9 @@ namespace KestrelMod
                     baseEnergy = 3,
                     heatTrigger = 3,
                     heatMin = 0,
-                    hull = 9,
-                    hullMax = 9,
-                    shieldMaxBase = 5
+                    hull = 12,
+                    hullMax = 12,
+                    shieldMaxBase = 4
                 },
                 KestrelParts,
                 KestrelChassisSprite ?? throw new Exception("kestrel chassis sprite not loaded"),
@@ -267,7 +267,7 @@ namespace KestrelMod
                 }
             );
 
-            KestrelStarterShip.AddLocalisation("The Kestrel", "A cruiser from another universe. A botched FTL jump marks the beginning of a new mission. Armed with a Burst Laser II gun.");
+            KestrelStarterShip.AddLocalisation("Kestrel", "A cruiser from another universe. A runaway FTL jump beckons a new mission. Equipped with Burst Laser II and Artemis.");
 
             registry.RegisterStartership(KestrelStarterShip);
         }
