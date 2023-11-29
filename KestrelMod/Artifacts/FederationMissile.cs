@@ -8,7 +8,19 @@ namespace KestrelMod.Artifacts
 {
     internal class FederationMissile : Artifact
     {
-        //todo: add cards first
-        //then add artifacts
+        //ignores shields (piercing) and deals 2 DMG, counter limits missiles to three launches per combat.
+        //to prevent confusion with the Artemis ship in vanilla, Artemis missiles will be called Federation missiles.
+        public int missileCounter;
+
+        public override string Description()
+        {
+            return "Federation manufacture. Ignores shields but only 3 missiles per combat";
+        }
+
+        public override string Name()
+        {
+            return "Federation Missiles";
+        }
+
     }
 }
