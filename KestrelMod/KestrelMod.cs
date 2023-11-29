@@ -248,8 +248,8 @@ namespace KestrelMod
                     baseEnergy = 3,
                     heatTrigger = 3,
                     heatMin = 0,
-                    hull = 12,
-                    hullMax = 12,
+                    hull = 10,
+                    hullMax = 10,
                     shieldMaxBase = 4
                 },
                 KestrelParts,
