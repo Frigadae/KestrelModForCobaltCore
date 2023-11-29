@@ -101,7 +101,7 @@ namespace KestrelMod
             //load kestrel missiles alt sprite
             var KestrelMissileHeavySpriteFile = Path.Combine(ModRootFolder.FullName, "Sprites", Path.GetFileName("missiles_kestrel_alt.png"));
             KestrelMissileHeavySprite = new ExternalSprite("Frigadae.KestrelMod.Sprites.KestrelMissiles", new FileInfo(KestrelMissileHeavySpriteFile));
-            if (!spriteRegistry.RegisterArt(KestrelMissileSprite))
+            if (!spriteRegistry.RegisterArt(KestrelMissileHeavySprite))
             {
                 throw new Exception("kestrel missile heavy sprite not loaded");
             };
