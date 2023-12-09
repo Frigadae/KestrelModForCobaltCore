@@ -292,7 +292,7 @@ namespace KestrelMod
                 }
             );
 
-            KestrelStarterShip.AddLocalisation("Kestrel", "A cruiser from another universe. A runaway FTL jump beckons a new mission. Equipped with Burst Laser and Artemis.");
+            KestrelStarterShip.AddLocalisation("Kestrel", "A cruiser from another universe. A runaway FTL jump beckons a new mission. Equipped with Burst Laser and Artemis Missile.");
 
             registry.RegisterStartership(KestrelStarterShip);
         }
