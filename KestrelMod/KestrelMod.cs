@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace KestrelMod
 {
-    public partial class Manifest : IModManifest, ISpriteManifest, IShipManifest, IStartershipManifest, IShipPartManifest, IArtifactManifest
+    public partial class Manifest : IModManifest, ISpriteManifest, IShipManifest, IStartershipManifest, IShipPartManifest, IArtifactManifest, ICardManifest
     {
         //kestrel mod manifest name
         public DirectoryInfo? ModRootFolder { get; set; }
@@ -19,15 +19,6 @@ namespace KestrelMod
         public string Name => "Frigadae.KestrelMod.KestrelModManifest";
 
         public IEnumerable<DependencyEntry> Dependencies => new DependencyEntry[0];
-
-        //kestrel ship parts sprites
-        private ExternalSprite? KestrelWingSprite;
-        private ExternalSprite? KestrelCannonSprite;
-        private ExternalSprite? KestrelCockpitSprite;
-        private ExternalSprite? KestrelMissileSprite;
-        private ExternalSprite? KestrelChassisSprite;
-        private ExternalSprite? KestrelCannonHeavySprite;
-        private ExternalSprite? KestrelMissileHeavySprite;
 
         //kestrel external ship obj
         private ExternalShip? KestrelShip;
@@ -48,71 +39,6 @@ namespace KestrelMod
         void IModManifest.BootMod(IModLoaderContact contact)
         {
             //throw new Exception("Not implemented!");
-        }
-
-        //load sprite registry
-        public void LoadManifest(ISpriteRegistry spriteRegistry)
-        {
-            if (ModRootFolder == null)
-            {
-                throw new Exception("Modrootfolder missing!");
-            }
-
-            //load kestrel wing sprite
-            var KestrelWingSpriteFile = Path.Combine(ModRootFolder.FullName, "Sprites", Path.GetFileName("wing_kestrel.png"));
-            KestrelWingSprite = new ExternalSprite("Frigadae.KestrelMod.Sprites.KestrelWing", new FileInfo(KestrelWingSpriteFile));
-            if (!spriteRegistry.RegisterArt(KestrelWingSprite))
-            {
-                throw new Exception("kestrel wing sprite not loaded");
-            };
-
-            //load kestrel cannon sprite
-            var KestrelCannonSpriteFile = Path.Combine(ModRootFolder.FullName, "Sprites", Path.GetFileName("cannon_kestrel.png"));
-            KestrelCannonSprite = new ExternalSprite("Frigadae.KestrelMod.Sprites.KestrelCannon", new FileInfo(KestrelCannonSpriteFile));
-            if (!spriteRegistry.RegisterArt(KestrelCannonSprite))
-            {
-                throw new Exception("kestrel cannon sprite not loaded");
-            };
-
-            //load kestrel cockpit sprite
-            var KestrelCockpitSpriteFile = Path.Combine(ModRootFolder.FullName, "Sprites", Path.GetFileName("cockpit_kestrel.png"));
-            KestrelCockpitSprite = new ExternalSprite("Frigadae.KestrelMod.Sprites.KestrelCockpit", new FileInfo(KestrelCockpitSpriteFile));
-            if (!spriteRegistry.RegisterArt(KestrelCockpitSprite))
-            {
-                throw new Exception("kestrel cockpit sprite not loaded");
-            };
-
-            //load kestrel missiles sprite
-            var KestrelMissileSpriteFile = Path.Combine(ModRootFolder.FullName, "Sprites", Path.GetFileName("missiles_kestrel.png"));
-            KestrelMissileSprite = new ExternalSprite("Frigadae.KestrelMod.Sprites.KestrelMissiles", new FileInfo(KestrelMissileSpriteFile));
-            if (!spriteRegistry.RegisterArt(KestrelMissileSprite))
-            {
-                throw new Exception("kestrel missile sprite not loaded");
-            };
-
-            //load kestrel cannon alt sprite
-            var KestrelCannonAltSpriteFile = Path.Combine(ModRootFolder.FullName, "Sprites", Path.GetFileName("cannon_kestrel_alt.png"));
-            KestrelCannonHeavySprite = new ExternalSprite("Frigadae.KestrelMod.Sprites.KestrelAltCannon", new FileInfo(KestrelCannonAltSpriteFile));
-            if (!spriteRegistry.RegisterArt(KestrelCannonHeavySprite))
-            {
-                throw new Exception("kestrel cannon heavy sprite not loaded");
-            };
-
-            //load kestrel missiles alt sprite
-            var KestrelMissileHeavySpriteFile = Path.Combine(ModRootFolder.FullName, "Sprites", Path.GetFileName("missiles_kestrel_alt.png"));
-            KestrelMissileHeavySprite = new ExternalSprite("Frigadae.KestrelMod.Sprites.KestrelMissilesHeavy", new FileInfo(KestrelMissileHeavySpriteFile));
-            if (!spriteRegistry.RegisterArt(KestrelMissileHeavySprite))
-            {
-                throw new Exception("kestrel missile heavy sprite not loaded");
-            };
-
-            //load kestrel chassis sprite
-            var KestrelChassisSpriteFile = Path.Combine(ModRootFolder.FullName, "Sprites", Path.GetFileName("chassis_kestrel.png"));
-            KestrelChassisSprite = new ExternalSprite("Frigadae.KestrelMod.Sprites.KestrelChassis", new FileInfo(KestrelChassisSpriteFile));
-            if (!spriteRegistry.RegisterArt(KestrelChassisSprite))
-            {
-                throw new Exception("kestrel chassis sprite not loaded");
-            };
         }
 
         public void LoadManifest(IShipPartRegistry shipPartRegistry)
@@ -300,6 +226,11 @@ namespace KestrelMod
         public void LoadManifest(IArtifactRegistry registry)
         {
             
+        }
+
+        public void LoadManifest(ICardRegistry registry)
+        {
+
         }
     }
 }
