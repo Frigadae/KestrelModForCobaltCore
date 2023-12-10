@@ -10,8 +10,6 @@ namespace KestrelMod.Artifacts
     {
         //three shots - 1 DMG each
         //builds up charge for three turns, on full charge burst laser can be fired for 0 energy. If not fired, retain
-        private int charge = 1;
-        private int maxCharge = 3;
 
         public override string Description()
         {

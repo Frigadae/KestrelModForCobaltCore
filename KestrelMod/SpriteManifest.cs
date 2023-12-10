@@ -27,6 +27,9 @@ namespace KestrelMod
         private ExternalSprite? KestrelLaserCardSprite;
         private ExternalSprite? KestrelMissileCardSprite;
 
+        //artifact sprites
+        private ExternalSprite? KestrelMissileArtifactSprite;
+
         //load sprite registry
         public void LoadManifest(ISpriteRegistry spriteRegistry)
         {
@@ -99,22 +102,29 @@ namespace KestrelMod
                 throw new Exception("kestrel card border sprite not loaded");
             };
 
-            //load burst laser sprite
+            //load burst laser card sprite
             var KestrelLaserCardSpriteFile = Path.Combine(ModRootFolder.FullName, "Sprites", Path.GetFileName("BurstLaser.png"));
             KestrelLaserCardSprite = new ExternalSprite("Frigadae.KestrelMod.Sprites.BurstLaser", new FileInfo(KestrelLaserCardSpriteFile));
             if (!spriteRegistry.RegisterArt(KestrelLaserCardSprite))
             {
-                throw new Exception("burst laser sprite not loaded");
+                throw new Exception("burst laser card sprite not loaded");
             };
 
-            //load burst laser sprite
+            //load artemis missile card sprite
             var KestrelMissileCardSpriteFile = Path.Combine(ModRootFolder.FullName, "Sprites", Path.GetFileName("BurstLaser.png"));
             KestrelMissileCardSprite = new ExternalSprite("Frigadae.KestrelMod.Sprites.ArtemisMissile", new FileInfo(KestrelMissileCardSpriteFile));
             if (!spriteRegistry.RegisterArt(KestrelMissileCardSprite))
             {
-                throw new Exception("artemis missile sprite not loaded");
+                throw new Exception("artemis missile card sprite not loaded");
             };
 
+            //load artemis missile artifact sprite
+            var KestrelMissileArtifactSpriteFile = Path.Combine(ModRootFolder.FullName, "Sprites", Path.GetFileName("BurstLaser.png"));
+            KestrelMissileArtifactSprite = new ExternalSprite("Frigadae.KestrelMod.Sprites.ArtemisMissile", new FileInfo(KestrelMissileArtifactSpriteFile));
+            if (!spriteRegistry.RegisterArt(KestrelMissileArtifactSprite))
+            {
+                throw new Exception("artemis missile artifact sprite not loaded");
+            };
         }
     }
 }
