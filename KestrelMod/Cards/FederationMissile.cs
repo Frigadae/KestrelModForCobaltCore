@@ -11,14 +11,34 @@ namespace KestrelMod.Cards
 
         public override List<CardAction> GetActions(State s, Combat c)
         {
-            var list = new List<CardAction>();
+            //initialise card action list
+            List<CardAction> actionList = new List<CardAction>();
 
-            return list;
+            ASpawn aspawn = new ASpawn();
+            //TODO: there's no piercing flag for missiles, find how to make missile pierce shields
+            Missile missile = new Missile();
+            missile.yAnimation = 0.0;
+            missile.missileType = MissileType.normal;
+
+            aspawn.thing = (StuffBase) missile;
+            actionList.Add((CardAction) aspawn);
+
+            //TODO: we don't want cannon shot to pierce, we want missile to pierce
+            //remove this once we figure out how to make missile objects pierce
+            actionList.Add((CardAction) new AAttack()
+            {
+                targetPlayer = false,
+                piercing = true,
+                damage = this.GetDmg(s, 2)
+            });
+
+            return actionList;
         }
 
         public override CardData GetData(State state) => new CardData
         {
-            cost = 0
+            cost = 0,
+            exhaust = true,
         };
 
         public override string Name()
