@@ -220,7 +220,7 @@ namespace KestrelMod
 
             if (!registry.RegisterDeck(MissileDeck))
             {
-                throw new Exception("Kestrel deck not loaded");
+                throw new Exception("missile deck not loaded");
             }
         }
 
@@ -228,10 +228,10 @@ namespace KestrelMod
         {
             if (KestrelMissileCardSprite == null)
             {
-                throw new Exception("Kestrel card sprite is null!");
+                throw new Exception("Kestrel missile card sprite is null!");
             }
 
-            var missileCard = new ExternalCard("Frigadae.KestrelMod.FederationMissileCard", typeof(LaunchFederationMissile), KestrelMissileCardSprite, null);
+            var missileCard = new ExternalCard("Frigadae.KestrelMod.FederationMissileCard", typeof(LaunchFederationMissile), KestrelMissileCardSprite, MissileDeck);
             missileCard.AddLocalisation("Federation Missile", "Fires a missile and a piercing shot");
 
             registry.RegisterCard(missileCard);
