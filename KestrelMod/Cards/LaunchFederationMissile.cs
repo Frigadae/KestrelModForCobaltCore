@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KestrelMod.CardActions;
 
 namespace KestrelMod.Cards
 {
-    internal class FederationMissile : Card
+    [CardMeta(rarity = Rarity.common, dontOffer = true)]
+    internal class LaunchFederationMissile : Card
     {
-
+        
         public override List<CardAction> GetActions(State s, Combat c)
         {
             //initialise card action list
@@ -29,21 +31,24 @@ namespace KestrelMod.Cards
             {
                 targetPlayer = false,
                 piercing = true,
-                damage = this.GetDmg(s, 2)
+                damage = this.GetDmg(s, 1)
             });
 
             return actionList;
         }
 
-        public override CardData GetData(State state) => new CardData
+        public override CardData GetData(State state)
         {
-            cost = 0,
-            exhaust = true,
-        };
+            CardData cardData = new CardData();
+            cardData.cost = 1;
+            cardData.exhaust = true;
+
+            return cardData;
+        }
 
         public override string Name()
         {
-            return "Launch Federation Missile";
+            return "Federation Missile Shot";
         }
     }
 }

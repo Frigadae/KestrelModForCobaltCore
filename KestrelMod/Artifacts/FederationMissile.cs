@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KestrelMod.Cards;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,12 +15,22 @@ namespace KestrelMod.Artifacts
 
         public override string Description()
         {
-            return "Ignores shields but only a limited number of missiles can be fired each combat.";
+            return "Fires a missile and a piercing shot. A limited number of missiles can be used in combat.";
         }
 
         public override string Name()
         {
             return "Federation Missiles";
+        }
+
+        public override List<Tooltip>? GetExtraTooltips()
+        {
+            List<Tooltip> extraTooltips = new List<Tooltip>();
+            extraTooltips.Add((Tooltip) new TTCard()
+            {
+                card = (Card) new LaunchFederationMissile()
+            });
+            return extraTooltips;
         }
 
     }
