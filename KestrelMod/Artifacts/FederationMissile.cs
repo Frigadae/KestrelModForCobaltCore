@@ -20,7 +20,7 @@ namespace KestrelMod.Artifacts
 
         public override string Name()
         {
-            return "Federation Missiles";
+            return "Artemis Missiles";
         }
 
         public override List<Tooltip>? GetExtraTooltips()

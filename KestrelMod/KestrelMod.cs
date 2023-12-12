@@ -204,7 +204,7 @@ namespace KestrelMod
                 }
 
                 FederationMissile = new ExternalArtifact("Frigadae.KestrelMod.FederationMissileArtifact", typeof(FederationMissile), KestrelMissileArtifactSprite, new ExternalGlossary[0], null, null);
-                FederationMissile.AddLocalisation("Federation Missile", "Fires a missile and a piercing shot. A limited amount of missiles can be fired per combat.");
+                FederationMissile.AddLocalisation("Federation Missiles", "Fires a missile and a piercing shot. A limited amount of missiles can be fired per combat.");
 
                 registry.RegisterArtifact(FederationMissile);
             }
@@ -232,7 +232,7 @@ namespace KestrelMod
             }
 
             var missileCard = new ExternalCard("Frigadae.KestrelMod.FederationMissileCard", typeof(LaunchFederationMissile), KestrelMissileCardSprite, MissileDeck);
-            missileCard.AddLocalisation("Federation Missile", "Fires a missile and a piercing shot");
+            missileCard.AddLocalisation("Artemis Missile", "Fires a missile and a piercing shot");
 
             registry.RegisterCard(missileCard);
         }
@@ -254,7 +254,7 @@ namespace KestrelMod
                 },
                 new ExternalArtifact[1]
                 {
-                    FederationMissile ?? throw new Exception("Federation missile artifact not found!"),
+                    FederationMissile ?? throw new Exception("Federation missiles artifact not found!"),
                 },
                 new Type[]
                 {
