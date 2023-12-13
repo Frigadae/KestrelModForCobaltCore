@@ -312,6 +312,7 @@ namespace KestrelMod
                 new ExternalArtifact[]
                 {
                     FederationMissile ?? throw new Exception("Federation missiles artifact not found!"),
+                    FederationLaser ?? throw new Exception("Federation laser artifact not found!"),
                 },
                 new Type[]
                 {
