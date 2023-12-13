@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KestrelMod.Cards;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,16 @@ namespace KestrelMod.Artifacts
         public override void OnTurnStart(State state, Combat combat)
         {
             base.OnTurnStart(state, combat);
+        }
+
+        public override List<Tooltip>? GetExtraTooltips()
+        {
+            List<Tooltip> extraTooltips = new List<Tooltip>();
+            extraTooltips.Add((Tooltip)new TTCard()
+            {
+                card = (Card)new FireBurstLaser()
+            });
+            return extraTooltips;
         }
     }
 }
