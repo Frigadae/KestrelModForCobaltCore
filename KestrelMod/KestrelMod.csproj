@@ -36,6 +36,9 @@
     <None Update="Sprites\BurstLaser.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Sprites\BurstLaserArtifact.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Sprites\cannon_kestrel.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
