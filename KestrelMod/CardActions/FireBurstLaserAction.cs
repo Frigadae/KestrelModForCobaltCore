@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KestrelMod.CardActions
 {
-    internal class LaunchFederationMissileAction : CardAction
+    internal class FireBurstLaserAction : CardAction
     {
         public override void Begin(G g, State s, Combat c)
         {
