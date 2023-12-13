@@ -41,6 +41,9 @@ namespace KestrelMod
         //kestrel deck
         private ExternalDeck? MissileDeck;
 
+        //external card
+        private ExternalCard? MissileCard;
+
         //logger
         public ILogger? Logger { get; set; }
 
@@ -231,10 +234,10 @@ namespace KestrelMod
                 throw new Exception("Kestrel missile card sprite is null!");
             }
 
-            var missileCard = new ExternalCard("Frigadae.KestrelMod.FederationMissileCard", typeof(LaunchFederationMissile), KestrelMissileCardSprite, MissileDeck);
-            missileCard.AddLocalisation("Artemis Missile", "Fires a missile and a piercing shot");
+            MissileCard = new ExternalCard("Frigadae.KestrelMod.FederationMissileCard", typeof(LaunchFederationMissile), KestrelMissileCardSprite, MissileDeck);
+            MissileCard.AddLocalisation("Artemis Missile", "Fires a missile and a piercing shot");
 
-            registry.RegisterCard(missileCard);
+            registry.RegisterCard(MissileCard);
         }
 
         //load startership registry
@@ -248,9 +251,9 @@ namespace KestrelMod
             ExternalStarterShip KestrelStarterShip = new ExternalStarterShip(
                 "Frigadae.KestrelMod.KestrelShip.StarterShip",
                 KestrelShip.GlobalName,
-                new ExternalCard[0]
+                new ExternalCard[1]
                 {
-
+                    MissileCard ?? throw new Exception("Artemis missile card not found!")
                 },
                 new ExternalArtifact[1]
                 {
@@ -266,7 +269,10 @@ namespace KestrelMod
                 new Type[]
                 {
                     typeof(ShieldPrep)
-                }
+                },
+                null,
+                null,
+                null
             );
 
             KestrelStarterShip.AddLocalisation("Kestrel", "A cruiser from another universe. A runaway FTL jump beckons a new mission. Equipped with Burst Laser and Artemis Missile.");
