@@ -286,7 +286,10 @@ namespace KestrelMod
                     throw new Exception("Kestrel burst laser card sprite is null!");
                 }
 
-                BurstLaserCard = new ExternalCard("Frigadae.KestrelMod.FederationLaserCard", typeof(BurstLaser), KestrelLaserCardSprite, BurstLaserCard);
+                BurstLaserCard = new ExternalCard("Frigadae.KestrelMod.FederationLaserCard", typeof(FireBurstLaser), KestrelLaserCardSprite, BurstLaserDeck);
+                BurstLaserCard.AddLocalisation("Burst Laser", "Fires three normal shots");
+
+                registry.RegisterCard(BurstLaserCard);
             }
         }
 
@@ -301,11 +304,12 @@ namespace KestrelMod
             ExternalStarterShip KestrelStarterShip = new ExternalStarterShip(
                 "Frigadae.KestrelMod.KestrelShip.StarterShip",
                 KestrelShip.GlobalName,
-                new ExternalCard[1]
+                new ExternalCard[]
                 {
-                    MissileCard ?? throw new Exception("Artemis missile card not found!")
+                    MissileCard ?? throw new Exception("Artemis Missile card not found!"),
+                    BurstLaserCard ?? throw new Exception("Burst Laser card not found!")
                 },
-                new ExternalArtifact[1]
+                new ExternalArtifact[]
                 {
                     FederationMissile ?? throw new Exception("Federation missiles artifact not found!"),
                 },
