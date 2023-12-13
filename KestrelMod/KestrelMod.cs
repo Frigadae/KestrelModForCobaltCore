@@ -37,12 +37,15 @@ namespace KestrelMod
 
         //external artifacts
         private ExternalArtifact? FederationMissile;
+        private ExternalArtifact? FederationLaser;
 
         //kestrel deck
         private ExternalDeck? MissileDeck;
+        private ExternalDeck? BurstLaserDeck;
 
         //external card
         private ExternalCard? MissileCard;
+        private ExternalCard? BurstLaserCard;
 
         //logger
         public ILogger? Logger { get; set; }
@@ -53,6 +56,7 @@ namespace KestrelMod
             //throw new Exception("Not implemented!");
         }
 
+        //ship part registry
         public void LoadManifest(IShipPartRegistry shipPartRegistry)
         {
             //initialise ship parts
@@ -198,8 +202,10 @@ namespace KestrelMod
             shipRegistry.RegisterShip(KestrelShip);
         }
 
+        //artifact registry
         public void LoadManifest(IArtifactRegistry registry)
         {
+            //federation missile artifact
             {
                 if (KestrelMissileArtifactSprite == null)
                 {
@@ -211,33 +217,77 @@ namespace KestrelMod
 
                 registry.RegisterArtifact(FederationMissile);
             }
+
+            //federation laser artifact
+            {
+                if (KestrelLaserArtifactSprite == null)
+                {
+                    throw new Exception("Kestrel federation laser artifact is null!");
+                }
+
+                FederationLaser = new ExternalArtifact("Frigadae.KestrelMod.FederationLaserArtifact", typeof(FederationLaser), KestrelLaserArtifactSprite, new ExternalGlossary[0], null, null);
+                FederationLaser.AddLocalisation("Federation Laser", "Adds one charge each turn, on full charge fires three shots dealing 1 DMG");
+
+                registry.RegisterArtifact(FederationLaser);
+            }
         }
 
-
+        //deck registry
         public void LoadManifest(IDeckRegistry registry)
         {
-            MissileDeck = new ExternalDeck("Frigadae.KestrelMod.FederationMissileDeck", System.Drawing.Color.DarkSlateGray, System.Drawing.Color.Black,
+            //missile deck
+            {
+                MissileDeck = new ExternalDeck("Frigadae.KestrelMod.FederationMissileDeck", System.Drawing.Color.DarkSlateGray, System.Drawing.Color.Black,
                 KestrelMissileCardSprite ?? throw new Exception("Kestrel card sprite is null!"),
-                KestrelCardBorderSprite ?? throw new Exception("Kestrel card border is null!"),
+                KestrelCardBorderSprite ?? throw new Exception("Kestrel card border sprite is null!"),
                 null);
 
-            if (!registry.RegisterDeck(MissileDeck))
-            {
-                throw new Exception("missile deck not loaded");
+                if (!registry.RegisterDeck(MissileDeck))
+                {
+                    throw new Exception("missile deck not loaded");
+                }
             }
+
+            //burst laser deck
+            {
+                BurstLaserDeck = new ExternalDeck("Frigadae.KestrelMod.FederationBurstLaserDeck", System.Drawing.Color.DarkSlateGray, System.Drawing.Color.Black,
+                KestrelLaserCardSprite ?? throw new Exception("Kestrel card sprite is null!"),
+                KestrelCardBorderSprite ?? throw new Exception("Kestrel card border sprite is null!"),
+                null);
+
+                if (!registry.RegisterDeck(BurstLaserDeck))
+                {
+                    throw new Exception("burst laser deck not loaded");
+                }
+            }
+            
         }
 
+        //card registry
         public void LoadManifest(ICardRegistry registry)
         {
-            if (KestrelMissileCardSprite == null)
-            {
-                throw new Exception("Kestrel missile card sprite is null!");
+            //register artemis missile card
+            { 
+                if (KestrelMissileCardSprite == null)
+                {
+                    throw new Exception("Kestrel missile card sprite is null!");
+                }
+
+                MissileCard = new ExternalCard("Frigadae.KestrelMod.FederationMissileCard", typeof(LaunchFederationMissile), KestrelMissileCardSprite, MissileDeck);
+                MissileCard.AddLocalisation("Artemis Missile", "Fires a missile and a piercing shot");
+
+                registry.RegisterCard(MissileCard);
             }
 
-            MissileCard = new ExternalCard("Frigadae.KestrelMod.FederationMissileCard", typeof(LaunchFederationMissile), KestrelMissileCardSprite, MissileDeck);
-            MissileCard.AddLocalisation("Artemis Missile", "Fires a missile and a piercing shot");
+            //register burst laser card
+            {
+                if (KestrelLaserCardSprite == null)
+                {
+                    throw new Exception("Kestrel burst laser card sprite is null!");
+                }
 
-            registry.RegisterCard(MissileCard);
+                BurstLaserCard = new ExternalCard("Frigadae.KestrelMod.FederationLaserCard", typeof(BurstLaser), KestrelLaserCardSprite, BurstLaserCard);
+            }
         }
 
         //load startership registry

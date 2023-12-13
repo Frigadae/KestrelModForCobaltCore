@@ -29,6 +29,7 @@ namespace KestrelMod
 
         //artifact sprites
         private ExternalSprite? KestrelMissileArtifactSprite;
+        private ExternalSprite? KestrelLaserArtifactSprite;
 
         //missile sprite
         private ExternalSprite? KestrelArtemisMissileSprite;
@@ -123,11 +124,19 @@ namespace KestrelMod
 
             //load artemis missile artifact sprite
             var KestrelMissileArtifactSpriteFile = Path.Combine(ModRootFolder.FullName, "Sprites", Path.GetFileName("ArtemisMissileArtifact.png"));
-            KestrelMissileArtifactSprite = new ExternalSprite("Frigadae.KestrelMod.Sprites.ArtemisMissileArtifact", new FileInfo(KestrelMissileArtifactSpriteFile));
+            KestrelMissileArtifactSprite = new ExternalSprite("Frigadae.KestrelMod.Sprites.FederationMissileArtifact", new FileInfo(KestrelMissileArtifactSpriteFile));
             if (!spriteRegistry.RegisterArt(KestrelMissileArtifactSprite))
             {
                 throw new Exception("artemis missile artifact sprite not loaded");
             };
+
+            //load federation laser artifact sprite
+            var KestrelLaserArtifactSpriteFile = Path.Combine(ModRootFolder.FullName, "Sprites", Path.GetFileName("BurstLaserArtifact.png"));
+            KestrelLaserArtifactSprite = new ExternalSprite("Frigadae.KestrelMod.Sprites.FederationLaserArtifact", new FileInfo(KestrelLaserArtifactSpriteFile));
+            if (!spriteRegistry.RegisterArt(KestrelLaserArtifactSprite))
+            {
+                throw new Exception("federation artifact sprite not loaded");
+            }
 
             //load artemis missile object sprite
             var KestrelArtemisMissileSpriteFile = Path.Combine(ModRootFolder.FullName, "Sprites", Path.GetFileName("missile_federation.png"));

@@ -47,7 +47,7 @@ namespace KestrelMod.Cards
 
         public override string Name()
         {
-            return "Federation Missile Shot";
+            return "Launch Federation Missile";
         }
     }
 }
