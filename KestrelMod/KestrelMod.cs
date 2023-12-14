@@ -237,7 +237,7 @@ namespace KestrelMod
         {
             //missile deck
             {
-                MissileDeck = new ExternalDeck("Frigadae.KestrelMod.FederationMissileDeck", System.Drawing.Color.DarkSlateGray, System.Drawing.Color.Black,
+                MissileDeck = new ExternalDeck("Frigadae.KestrelMod.FederationMissileDeck", System.Drawing.Color.Beige, System.Drawing.Color.Black,
                 KestrelMissileCardSprite ?? throw new Exception("Kestrel card sprite is null!"),
                 KestrelCardBorderSprite ?? throw new Exception("Kestrel card border sprite is null!"),
                 null);
@@ -250,7 +250,7 @@ namespace KestrelMod
 
             //burst laser deck
             {
-                BurstLaserDeck = new ExternalDeck("Frigadae.KestrelMod.FederationBurstLaserDeck", System.Drawing.Color.DarkSlateGray, System.Drawing.Color.Black,
+                BurstLaserDeck = new ExternalDeck("Frigadae.KestrelMod.FederationBurstLaserDeck", System.Drawing.Color.Beige, System.Drawing.Color.Black,
                 KestrelLaserCardSprite ?? throw new Exception("Kestrel card sprite is null!"),
                 KestrelCardBorderSprite ?? throw new Exception("Kestrel card border sprite is null!"),
                 null);
