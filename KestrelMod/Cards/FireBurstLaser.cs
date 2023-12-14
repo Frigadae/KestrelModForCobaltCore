@@ -18,6 +18,7 @@ namespace KestrelMod.Cards
             var attack = new AAttack();
             attack.targetPlayer = false;
             attack.damage = this.GetDmg(s, 1);
+            attack.fast = true;
 
             actionList.Add((CardAction) attack);
             actionList.Add((CardAction) attack);
