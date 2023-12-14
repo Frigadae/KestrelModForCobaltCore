@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace KestrelMod.Artifacts
 {
+    #nullable enable
+    [ArtifactMeta(owner = Deck.colorless, pools = new ArtifactPool[] { ArtifactPool.EventOnly }, unremovable = true)]
     internal class FederationMissile : Artifact
     {
         //ignores shields (piercing) and deals 2 DMG.

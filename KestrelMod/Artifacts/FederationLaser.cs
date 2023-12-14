@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace KestrelMod.Artifacts
 {
+    #nullable enable
+    [ArtifactMeta(owner = Deck.colorless, pools = new ArtifactPool[] { ArtifactPool.EventOnly }, unremovable = true)]
     internal class FederationLaser : Artifact
     {
         //three shots - 1 DMG each
