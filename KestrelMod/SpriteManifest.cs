@@ -14,25 +14,25 @@ namespace KestrelMod
     public partial class Manifest: ISpriteManifest
     {
         //kestrel ship parts sprites
-        private ExternalSprite? KestrelWingSprite;
-        private ExternalSprite? KestrelCannonSprite;
-        private ExternalSprite? KestrelCockpitSprite;
-        private ExternalSprite? KestrelMissileSprite;
-        private ExternalSprite? KestrelChassisSprite;
-        private ExternalSprite? KestrelCannonHeavySprite;
-        private ExternalSprite? KestrelMissileHeavySprite;
+        private static ExternalSprite? KestrelWingSprite;
+        private static ExternalSprite? KestrelCannonSprite;
+        private static ExternalSprite? KestrelCockpitSprite;
+        private static ExternalSprite? KestrelMissileSprite;
+        private static ExternalSprite? KestrelChassisSprite;
+        private static ExternalSprite? KestrelCannonHeavySprite;
+        private static ExternalSprite? KestrelMissileHeavySprite;
 
         //card sprites
-        private ExternalSprite? KestrelCardBorderSprite;
-        private ExternalSprite? KestrelLaserCardSprite;
-        private ExternalSprite? KestrelMissileCardSprite;
+        private static ExternalSprite? KestrelCardBorderSprite;
+        private static ExternalSprite? KestrelLaserCardSprite;
+        private static ExternalSprite? KestrelMissileCardSprite;
 
         //artifact sprites
-        private ExternalSprite? KestrelMissileArtifactSprite;
-        private ExternalSprite? KestrelLaserArtifactSprite;
+        private static ExternalSprite? KestrelMissileArtifactSprite;
+        private static ExternalSprite? KestrelLaserArtifactSprite;
 
         //missile sprite
-        private ExternalSprite? KestrelArtemisMissileSprite;
+        private static ExternalSprite? KestrelArtemisMissileSprite;
 
         //load sprite registry
         public void LoadManifest(ISpriteRegistry spriteRegistry)
