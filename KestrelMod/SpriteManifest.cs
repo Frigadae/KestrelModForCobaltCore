@@ -34,6 +34,9 @@ namespace KestrelMod
         //missile sprite
         private static ExternalSprite? KestrelArtemisMissileSprite;
 
+        //status sprite
+        private static ExternalSprite? CooldownChargeSprite;
+
         //load sprite registry
         public void LoadManifest(ISpriteRegistry spriteRegistry)
         {
@@ -144,6 +147,14 @@ namespace KestrelMod
             if (!spriteRegistry.RegisterArt(KestrelArtemisMissileSprite))
             {
                 throw new Exception("artemis missile object sprite not loaded");
+            };
+
+            //load status sprite cooldown charge
+            var CooldownChargeSpriteFile = Path.Combine(ModRootFolder.FullName, "Sprites", Path.GetFileName("cooldownCharge.png"));
+            CooldownChargeSprite = new ExternalSprite("Frigadae.KestrelMod.Sprites.CooldownCharge", new FileInfo(CooldownChargeSpriteFile));
+            if (!spriteRegistry.RegisterArt(CooldownChargeSprite))
+            {
+                throw new Exception("cooldown charge sprite not loaded");
             };
         }
     }
