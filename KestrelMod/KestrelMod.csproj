@@ -51,6 +51,9 @@
     <None Update="Sprites\cockpit_kestrel.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Sprites\cooldownCharge.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Sprites\missiles_kestrel.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

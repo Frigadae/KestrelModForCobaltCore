@@ -13,7 +13,7 @@ using KestrelMod.Artifacts;
 
 namespace KestrelMod
 {
-    public partial class Manifest : IModManifest, ISpriteManifest, IShipManifest, IStartershipManifest, IShipPartManifest, IArtifactManifest, ICardManifest, IDeckManifest
+    public partial class Manifest : IModManifest, IShipManifest, IStartershipManifest, IShipPartManifest, IArtifactManifest, ICardManifest, IDeckManifest, IStatusManifest
     {
         //kestrel mod manifest name
         public DirectoryInfo? ModRootFolder { get; set; }
@@ -46,6 +46,9 @@ namespace KestrelMod
         //external card
         private ExternalCard? MissileCard;
         private ExternalCard? BurstLaserCard;
+
+        //external status
+        private ExternalStatus? BurstLaserCharge;
 
         //logger
         public ILogger? Logger { get; set; }
@@ -333,6 +336,14 @@ namespace KestrelMod
             KestrelStarterShip.AddLocalisation("Kestrel", "A cruiser from another universe. A runaway FTL jump beckons a new mission. Equipped with Burst Laser and Artemis Missile.");
 
             registry.RegisterStartership(KestrelStarterShip);
+        }
+
+        //status registry
+        public void LoadManifest(IStatusRegistry registry)
+        {
+            BurstLaserCharge = new ExternalStatus("Frigadae.KestrelMod.Status.BurstLaserCharge", true, System.Drawing.Color.White, System.Drawing.Color.Black, , false);
+
+            registry.RegisterStatus(BurstLaserCharge);
         }
     }
 }
