@@ -48,7 +48,7 @@ namespace KestrelMod
         private ExternalCard? BurstLaserCard;
 
         //external status
-        private ExternalStatus? BurstLaserCharge;
+        private ExternalStatus? WeaponCharge;
 
         //logger
         public ILogger? Logger { get; set; }
@@ -346,9 +346,9 @@ namespace KestrelMod
                 throw new Exception("Cooldown charge status sprite not loaded!");
             }
 
-            BurstLaserCharge = new ExternalStatus("Frigadae.KestrelMod.Status.BurstLaserCharge", true, System.Drawing.Color.White, System.Drawing.Color.Black, CooldownChargeSprite, false);
+            WeaponCharge = new ExternalStatus("Frigadae.KestrelMod.Status.WeaponCharge", true, System.Drawing.Color.White, System.Drawing.Color.Black, CooldownChargeSprite, false);
 
-            registry.RegisterStatus(BurstLaserCharge);
+            registry.RegisterStatus(WeaponCharge);
         }
     }
 }
