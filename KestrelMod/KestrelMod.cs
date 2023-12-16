@@ -341,7 +341,12 @@ namespace KestrelMod
         //status registry
         public void LoadManifest(IStatusRegistry registry)
         {
-            BurstLaserCharge = new ExternalStatus("Frigadae.KestrelMod.Status.BurstLaserCharge", true, System.Drawing.Color.White, System.Drawing.Color.Black, , false);
+            if (CooldownChargeSprite == null)
+            {
+                throw new Exception("Cooldown charge status sprite not loaded!");
+            }
+
+            BurstLaserCharge = new ExternalStatus("Frigadae.KestrelMod.Status.BurstLaserCharge", true, System.Drawing.Color.White, System.Drawing.Color.Black, CooldownChargeSprite, false);
 
             registry.RegisterStatus(BurstLaserCharge);
         }
