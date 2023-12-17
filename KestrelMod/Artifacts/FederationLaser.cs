@@ -16,6 +16,9 @@ namespace KestrelMod.Artifacts
 
         //current implementation: fires three shots for two energy
 
+        public static int weaponChargeCountBase = 3;
+        public static int weaponChargeCounter = 0;
+
         public override string Description()
         {
             return "Builds up charge for three turns. When charged, fire three shots dealing 1 dmg each.";
@@ -26,9 +29,19 @@ namespace KestrelMod.Artifacts
             return "Federation Laser";
         }
 
+        public override void OnCombatStart(State state, Combat combat)
+        {
+            base.OnCombatStart(state, combat);
+
+            //Manifest.WeaponCharge.Id
+        }
+
         public override void OnTurnStart(State state, Combat combat)
         {
             base.OnTurnStart(state, combat);
+
+
+            //Manifest.WeaponCharge.Id
         }
 
         public override List<Tooltip>? GetExtraTooltips()

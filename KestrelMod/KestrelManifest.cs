@@ -13,7 +13,7 @@ using KestrelMod.Artifacts;
 
 namespace KestrelMod
 {
-    public partial class Manifest : IModManifest, IShipManifest, IStartershipManifest, IShipPartManifest, IArtifactManifest, ICardManifest, IDeckManifest, IStatusManifest
+    public partial class KestrelManifest : IModManifest, IShipManifest, IStartershipManifest, IShipPartManifest, IArtifactManifest, ICardManifest, IDeckManifest, IStatusManifest
     {
         //kestrel mod manifest name
         public DirectoryInfo? ModRootFolder { get; set; }
@@ -48,7 +48,7 @@ namespace KestrelMod
         private ExternalCard? BurstLaserCard;
 
         //external status
-        private ExternalStatus? WeaponCharge;
+        public static ExternalStatus? WeaponCharge;
 
         //logger
         public ILogger? Logger { get; set; }

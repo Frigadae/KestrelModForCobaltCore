@@ -11,7 +11,7 @@ using Microsoft.Extensions.Logging;
 
 namespace KestrelMod
 {
-    public partial class Manifest: ISpriteManifest
+    public partial class KestrelManifest: ISpriteManifest
     {
         //kestrel ship parts sprites
         private static ExternalSprite? KestrelWingSprite;
