@@ -50,6 +50,9 @@ namespace KestrelMod
         //external status
         public static ExternalStatus? WeaponCharge;
 
+        //status enumerable
+        //public static Dictionary<string, ExternalStatus> StatusArray = new Dictionary<string, ExternalStatus>();
+
         //logger
         public ILogger? Logger { get; set; }
 
@@ -346,9 +349,10 @@ namespace KestrelMod
                 throw new Exception("Cooldown charge status sprite not loaded!");
             }
 
-            WeaponCharge = new ExternalStatus("Frigadae.KestrelMod.Status.WeaponCharge", true, System.Drawing.Color.White, System.Drawing.Color.Black, CooldownChargeSprite, false);
-
+            WeaponCharge = new ExternalStatus("Frigadae.KestrelMod.Status.WeaponCharge", true, System.Drawing.Color.Black, System.Drawing.Color.LightSalmon, CooldownChargeSprite, false);
+            WeaponCharge.AddLocalisation("Weapon charge", "Gain a charge every turn, on full charge can be used to fire burst laser.");
             registry.RegisterStatus(WeaponCharge);
+            //StatusArray["WeaponCharge"] = WeaponCharge;
         }
     }
 }

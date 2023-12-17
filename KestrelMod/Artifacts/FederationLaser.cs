@@ -16,9 +16,6 @@ namespace KestrelMod.Artifacts
 
         //current implementation: fires three shots for two energy
 
-        public static int weaponChargeCountBase = 3;
-        public static int weaponChargeCounter = 0;
-
         public override string Description()
         {
             return "Builds up charge for three turns. When charged, fire three shots dealing 1 dmg each.";
@@ -33,15 +30,36 @@ namespace KestrelMod.Artifacts
         {
             base.OnCombatStart(state, combat);
 
-            //Manifest.WeaponCharge.Id
+            if (KestrelManifest.WeaponCharge.Id is not null)
+            {
+                Combat combatTurn = combat;
+                combatTurn.QueueImmediate(new AStatus()
+                {
+                    targetPlayer = true,
+                    //status = (Status)KestrelManifest.StatusArray["WeaponCharge"].Id,
+                    status = (Status)KestrelManifest.WeaponCharge.Id,
+                    statusAmount = 1
+                });
+                Pulse();
+            }
         }
 
         public override void OnTurnStart(State state, Combat combat)
         {
             base.OnTurnStart(state, combat);
 
-
-            //Manifest.WeaponCharge.Id
+            if (KestrelManifest.WeaponCharge.Id is not null)
+            {
+                Combat combatTurn = combat;
+                combatTurn.QueueImmediate(new AStatus()
+                {
+                    targetPlayer = true,
+                    //status = (Status)KestrelManifest.StatusArray["WeaponCharge"].Id,
+                    status = (Status)KestrelManifest.WeaponCharge.Id,
+                    statusAmount = 1
+                });
+                Pulse();
+            }
         }
 
         public override List<Tooltip>? GetExtraTooltips()
