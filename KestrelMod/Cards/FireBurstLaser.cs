@@ -30,7 +30,7 @@ namespace KestrelMod.Cards
         public override CardData GetData(State state)
         {
             CardData cardData = new CardData();
-            cardData.cost = 1;
+            cardData.cost = 2;
 
             return cardData;
         }

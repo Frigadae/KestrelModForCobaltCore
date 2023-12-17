@@ -12,7 +12,9 @@ namespace KestrelMod.Artifacts
     internal class FederationLaser : Artifact
     {
         //three shots - 1 DMG each
-        //builds up charge for three turns, on full charge burst laser can be fired for 0 energy. If not fired, retain
+        //TODO: add one charge each turn, on full charge (three charges) burst laser can be fired for 0 energy.
+
+        //current implementation: fires three shots for two energy
 
         public override string Description()
         {

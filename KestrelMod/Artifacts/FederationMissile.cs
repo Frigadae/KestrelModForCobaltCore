@@ -11,9 +11,10 @@ namespace KestrelMod.Artifacts
     [ArtifactMeta(owner = Deck.colorless, pools = new ArtifactPool[] { ArtifactPool.EventOnly }, unremovable = true)]
     internal class FederationMissile : Artifact
     {
-        //ignores shields (piercing) and deals 2 DMG.
-        //to prevent confusion with the Artemis ship in vanilla, Artemis missiles will be called Federation missiles.
-        //lazy workaround - give the player three exhaust cards
+        //TODO: missile ignores shields (piercing) and deals 2 DMG.
+        //this has not been implemented yet
+
+        //current implementation: attack copies Isaac's missile shot but piercing dmg is reduced by 1
 
         public override string Description()
         {
