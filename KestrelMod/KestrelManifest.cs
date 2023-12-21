@@ -218,7 +218,7 @@ namespace KestrelMod
                     throw new Exception("Kestrel missile artifact is null!");
                 }
 
-                FederationMissile = new ExternalArtifact("Frigadae.KestrelMod.FederationMissileArtifact", typeof(FederationMissile), KestrelMissileArtifactSprite, new ExternalGlossary[0], null, null);
+                FederationMissile = new ExternalArtifact("Frigadae.KestrelMod.FederationMissileArtifact", typeof(FederationMissile), KestrelMissileArtifactSprite, new ExternalGlossary[0], MissileDeck, null, null);
                 FederationMissile.AddLocalisation("Federation Missiles", "Fires a missile and a piercing shot. A limited amount of missiles can be fired per combat.");
 
                 registry.RegisterArtifact(FederationMissile);
@@ -231,7 +231,7 @@ namespace KestrelMod
                     throw new Exception("Kestrel federation laser artifact is null!");
                 }
 
-                FederationLaser = new ExternalArtifact("Frigadae.KestrelMod.FederationLaserArtifact", typeof(FederationLaser), KestrelLaserArtifactSprite, new ExternalGlossary[0], null, null);
+                FederationLaser = new ExternalArtifact("Frigadae.KestrelMod.FederationLaserArtifact", typeof(FederationLaser), KestrelLaserArtifactSprite, new ExternalGlossary[0], BurstLaserDeck, null, null);
                 FederationLaser.AddLocalisation("Federation Laser", "Adds one charge each turn, on full charge fires three shots dealing 1 DMG");
 
                 registry.RegisterArtifact(FederationLaser);
@@ -330,10 +330,7 @@ namespace KestrelMod
                 new Type[]
                 {
                     typeof(ShieldPrep)
-                },
-                null,
-                null,
-                null
+                }
             );
 
             KestrelStarterShip.AddLocalisation("Kestrel", "A cruiser from another universe. A runaway FTL jump beckons a new mission. Equipped with Burst Laser and Artemis Missile.");
