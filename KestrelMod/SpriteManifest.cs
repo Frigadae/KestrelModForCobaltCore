@@ -13,6 +13,7 @@ namespace KestrelMod
 {
     public partial class KestrelManifest: ISpriteManifest
     {
+        
         //kestrel ship parts sprites
         private static ExternalSprite? KestrelWingSprite;
         private static ExternalSprite? KestrelCannonSprite;
@@ -44,6 +45,7 @@ namespace KestrelMod
             {
                 throw new Exception("Modrootfolder missing!");
             }
+            /*
 
             //load kestrel wing sprite
             var KestrelWingSpriteFile = Path.Combine(ModRootFolder.FullName, "Sprites", Path.GetFileName("wing_kestrel.png"));
@@ -156,6 +158,35 @@ namespace KestrelMod
             {
                 throw new Exception("cooldown charge sprite not loaded");
             };
+            */
+
+            string[] filenameList =
+            {
+                "ArtemisMissile",
+                "ArtemisMissileArtifact",
+                "border_kestrel",
+                "BurstLaser",
+                "BurstLaserArtifact",
+                "cannon_kestrel",
+                "cannon_kestrel_alt",
+                "chassis_kestrel",
+                "cockpit_kestrel",
+                "cooldownCharge",
+                "missile_federationg",
+                "missiles_kestrel",
+                "missiles_kestrel_alt",
+                "wing_kestrel"
+            };
+
+            foreach (string filename in filenameList)
+            {
+                var spriteFile = Path.Combine(ModRootFolder.FullName, "Sprites", Path.GetFileName(filename) + ".png");
+                var spriteObject = new ExternalSprite("Frigadae.KestrelMod.Sprites." + filename, new FileInfo(spriteFile));
+                if (!spriteRegistry.RegisterArt(spriteObject))
+                {
+                    throw new Exception("cooldown charge sprite not loaded");
+                };
+            }
         }
     }
 }
