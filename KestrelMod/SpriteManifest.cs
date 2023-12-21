@@ -45,7 +45,6 @@ namespace KestrelMod
             {
                 throw new Exception("Modrootfolder missing!");
             }
-            /*
 
             //load kestrel wing sprite
             var KestrelWingSpriteFile = Path.Combine(ModRootFolder.FullName, "Sprites", Path.GetFileName("wing_kestrel.png"));
@@ -158,8 +157,11 @@ namespace KestrelMod
             {
                 throw new Exception("cooldown charge sprite not loaded");
             };
-            */
-
+            
+            /*
+            //TODO: refactor this later 
+            //if you refactor this, you need to refactor the rest of the manifest
+             
             string[] filenameList =
             {
                 "ArtemisMissile",
@@ -187,6 +189,7 @@ namespace KestrelMod
                     throw new Exception("cooldown charge sprite not loaded");
                 };
             }
+            */
         }
     }
 }
