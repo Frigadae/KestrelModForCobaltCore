@@ -32,7 +32,6 @@ namespace KestrelMod
         private ExternalPart? KestrelCockpitPart;
         private ExternalPart? KestrelMissilePart;
         private ExternalPart? KestrelWingRightPart;
-        private ExternalPart? KestrelCannonHeavyPart;
         private ExternalPart? KestrelMissileHeavyPart;
 
         //external artifacts
