@@ -94,20 +94,6 @@ namespace KestrelMod
                 null
             );
 
-            //initialise kestrel heavy cannon
-            Part KestrelCannonHeavyPartObj = new Part()
-            {
-                active = true,
-                damageModifier = PDamMod.none,
-                type = PType.cannon
-            };
-            KestrelCannonHeavyPart = new ExternalPart(
-                "Frigadae.KestrelMod.Parts.KestrelHeavyCannon",
-                KestrelCannonHeavyPartObj,
-                KestrelCannonHeavySprite ?? throw new Exception("kestrel cannon heavy not loaded"),
-                null
-            );
-
             //initialise kestrel cockpit
             Part KestrelCockpitPartObj = new Part()
             {
@@ -168,7 +154,6 @@ namespace KestrelMod
             //register parts
             shipPartRegistry.RegisterPart(KestrelWingLeftPart);
             shipPartRegistry.RegisterPart(KestrelCannonPart);
-            shipPartRegistry.RegisterPart(KestrelCannonHeavyPart);
             shipPartRegistry.RegisterPart(KestrelCockpitPart);
             shipPartRegistry.RegisterPart(KestrelMissilePart);
             shipPartRegistry.RegisterPart(KestrelMissileHeavyPart);
@@ -266,7 +251,6 @@ namespace KestrelMod
                     throw new Exception("burst laser deck not loaded");
                 }
             }
-            
         }
 
         //card registry
