@@ -10,6 +10,7 @@ using KestrelMod.Cards;
 using KestrelMod.CardActions;
 using Microsoft.Extensions.Logging;
 using KestrelMod.Artifacts;
+using HarmonyLib;
 
 namespace KestrelMod
 {
@@ -48,6 +49,19 @@ namespace KestrelMod
 
         //external status
         public static ExternalStatus? WeaponCharge;
+
+        //StatusPlan struct patch
+        public struct StatusPlan
+        {
+            public int boxWidth;
+            public bool asText;
+            public bool asBars;
+            public int barMax;
+            public string? txt;
+            public int barTickWidth;
+            public StatusDef statusDef;
+        }
+
 
         //status enumerable
         //public static Dictionary<string, ExternalStatus> StatusArray = new Dictionary<string, ExternalStatus>();
@@ -195,6 +209,7 @@ namespace KestrelMod
         //artifact registry
         public void LoadManifest(IArtifactRegistry registry)
         {
+
             //federation missile artifact
             {
                 if (KestrelMissileArtifactSprite == null)
@@ -330,7 +345,7 @@ namespace KestrelMod
             }
 
             WeaponCharge = new ExternalStatus("Frigadae.KestrelMod.Status.WeaponCharge", true, System.Drawing.Color.Black, System.Drawing.Color.LightSalmon, CooldownChargeSprite, false);
-            WeaponCharge.AddLocalisation("Weapon charge", "Gain a charge every turn, on full charge can be used to fire burst laser.");
+            WeaponCharge.AddLocalisation("Weapon Charge", "Gain a charge every turn, on full charge can be used to fire burst laser.");
             registry.RegisterStatus(WeaponCharge);
             //StatusArray["WeaponCharge"] = WeaponCharge;
         }
