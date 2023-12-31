@@ -26,24 +26,6 @@ namespace KestrelMod.Artifacts
             return "Federation Laser";
         }
 
-        public override void OnCombatStart(State state, Combat combat)
-        {
-            base.OnCombatStart(state, combat);
-
-            if (KestrelManifest.WeaponCharge.Id is not null)
-            {
-                Combat combatTurn = combat;
-                combatTurn.QueueImmediate(new AStatus()
-                {
-                    targetPlayer = true,
-                    //status = (Status)KestrelManifest.StatusArray["WeaponCharge"].Id,
-                    status = (Status)KestrelManifest.WeaponCharge.Id,
-                    statusAmount = 1
-                });
-                Pulse();
-            }
-        }
-
         public override void OnTurnStart(State state, Combat combat)
         {
             base.OnTurnStart(state, combat);
