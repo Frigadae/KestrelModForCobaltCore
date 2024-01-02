@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace KestrelMod.Cards
 {
+    [CardMeta(rarity = Rarity.common, dontOffer = true)]
     internal class FireBurstLaser : Card
     {
         public override List<CardAction> GetActions(State s, Combat c)
