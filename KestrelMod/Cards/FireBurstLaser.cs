@@ -32,6 +32,7 @@ namespace KestrelMod.Cards
         {
             CardData cardData = new CardData();
             cardData.cost = 2;
+            cardData.temporary = true;
 
             return cardData;
         }
