@@ -30,7 +30,11 @@ namespace KestrelMod.Artifacts
         {
             base.OnTurnStart(state, combat);
 
-            if (KestrelManifest.WeaponCharge.Id is not null)
+            if (KestrelManifest.WeaponCharge.Id is null)
+            {
+                return;
+            }
+            
             {
                 Combat combatTurn = combat;
                 combatTurn.QueueImmediate(new AStatus()
