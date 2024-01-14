@@ -225,6 +225,9 @@ namespace KestrelMod
 
             //federation laser artifact
             {
+                Harmony harmony = new Harmony("Frigadae.KestrelMod");
+                PatchLaserMethod(harmony);
+
                 if (KestrelLaserArtifactSprite == null)
                 {
                     throw new Exception("Kestrel federation laser artifact is null!");
