@@ -1,6 +1,7 @@
 # Cobalt Core Kestrel Mod
 ## About
--This mod adds the Kestrel cruiser from FTL: Faster Than Light into the Cobalt Core game.
+- This mod adds the Kestrel cruiser from FTL: Faster Than Light into the Cobalt Core game.
+- Includes two cards unique to the Kestrel cruiser: Burst Laser which fires three shots for two energy, Artemis missile which fires one piercing shot and a 2 DMG missile for one energy.
 - This mod is in hiatus due to changes in life and personal commitments, please do not send me bug reports as I do not have time to maintain this mod. 
 
 ## Definitely need to add this list
